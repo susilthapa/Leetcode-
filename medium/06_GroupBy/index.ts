@@ -20,6 +20,8 @@ Array.prototype.groupBy = function <T>(fn: (item: T) => string | number) {
   return result;
 };
 
+// for...of and reduce are slower than for loop
+
 // Solution 2
 
 // interface Array<T> {
