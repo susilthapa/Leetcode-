@@ -24,6 +24,25 @@ function join(arr1: ArrayType[], arr2: ArrayType[]): ArrayType[] {
   return Object.values(result);
 }
 
+
+function joinTwo(arr1: ArrayType[], arr2: ArrayType[]): ArrayType[] {
+  const map = new Map<number, ArrayType>();
+
+  for (const item of arr1) {
+    map.set(item.id, item);
+  }
+
+  for (const item of arr2) {
+    const existing = map.get(item.id);
+    map.set(
+      item.id,
+      existing ? { ...existing, ...item } : item
+    );
+  }
+
+  return Array.from(map.values());
+}
+
 // Example 1:
 
 // Input:
